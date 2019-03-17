@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+      xmlns:form="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Lista Produktow</title>
+    <link rel="stylesheet" th:href="@{/css/custom.css}"/>
+    <link rel="stylesheet" th:href="@{/css/main.css}"/>
+</head>
+
+<body>
+  <h1 aling="center">Lista Produktow</h1>
+  <table id="t02" cellpadding="2">
+    <tr>
+
+      <th>
+        <a href="/add"><h2>Strona Domowa: Dodaj nowy Produkt</h2></a>
+      </th>
+
+      <th>
+        <a aling="right" href="/deleteAll"><h2>Usun wszystkie Produkty</h2></a>
+
+      </th>
+      </tr>
+    </table>
+    <table>
+
+    </table>
+<form:form>
+<table id="t01" border="2" width="70%" cellpadding="2">
+  <tr>
+    <th>Data</th><th>Nazwa Produktu</th><th>Cena</th><th>Ile Mamy</th>
+    <th>Edycja</th><th>Usuwanie</th></tr>
+
+    <tr th:each="wallet : ${list}">
+ <td th:text="${wallet.date}"></td>
+ <td th:text="${wallet.name}"></td>
+ <td th:number="${wallet.price}"></td>
+ <td th:number="${wallet.moneyLeft}"></td>
+
+ <td><a th:href="@{'/editProduct/' + ${wallet.id}}">Edytuj</a></td>
+    <td><a th:href="@{'/deleteProduct/' + ${wallet.id}}">Usun</a></td>
+
+  </tr>
+
+</table>
+  <br/>
+</form:form>
+
+</body>
+</html>

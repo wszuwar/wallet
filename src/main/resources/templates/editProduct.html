@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Formularz dodawania Produktu</title>
+  <link rel="stylesheet" th:href="@{/css/styles.css}"/>
+  <link rel="stylesheet" th:href="@{/css/custom.css}"/>
+  <link rel="stylesheet" th:href="@{/css/main.css}"/>
+</head>
+<body>
+  <div>
+    <h1>Formularz dodawania Produktu</h1>
+
+    <form action="#" th:action="@{/editsave}" th:object="${wallet}" method="post">
+      <input type="hidden" th:value="${id}" th:field="*{id}" />
+      <table>
+        <tr>
+          <td width="10%"> Data :</td>
+          <td width="90%" aling="left"><input type="text" th:field="*{date}" /></td>
+        </tr>
+
+        <tr>
+          <td>Nazwa Produktu :</td>
+          <td><input type="text" th:field="*{name}" /></td>
+        </tr>
+
+        <tr>
+          <td>Cena :</td>
+          <td><input type="number" th:field="*{price}" /></td>
+        </tr>
+
+        <tr>
+          <td>Ile Mamy</td>
+          <td><input type="number" th:field="*{moneyLeft}"   /></td>
+        </tr>
+
+        <tr>
+          <td>   </td>
+          <td>
+            <input type="submit" value="Dodaj"/>
+          </td>
+        </tr>
+      </table>
+    </form>
+
+  </div>
+
+
+</body>
+</html>
