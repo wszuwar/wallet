@@ -2,8 +2,6 @@ package com.crud.wallet.model;
 
 
 import lombok.*;
-import org.springframework.data.annotation.CreatedDate;
-import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 import org.springframework.format.annotation.DateTimeFormat;
 
@@ -23,8 +21,7 @@ public class Wallet {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    @Temporal(TemporalType.TIMESTAMP)
-    @CreatedDate
+
     @DateTimeFormat(pattern = "YYYY-MM-dd")
     @Column(name = "date")
     private Date date;

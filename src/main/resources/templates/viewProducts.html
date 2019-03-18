@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
-      xmlns:form="http://www.w3.org/1999/xhtml">
+      xmlns:form="http://www.w3.org/1999/xhtml" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
 <head>
     <meta charset="UTF-8"/>
     <title>Lista Produktow</title>
@@ -9,9 +9,15 @@
 </head>
 
 <body>
+<h1 th:inline="text">Hello [[${#httpServletRequest.remoteUser}]]!</h1>
+<form th:action="@{/logout}" method="post">
+    <input type="submit" value="Sign Out"/>
+</form>
   <h1 aling="center">Lista Produktow</h1>
+
   <table id="t02" cellpadding="2">
     <tr>
+
 
       <th>
         <a href="/add"><button name="add" id="add">Dodaj nowy Zakup</button></a>
