@@ -59,7 +59,7 @@ public class WalletController {
         wallet.setDate(p.getDate());
         wallet.setName(p.getName());
         wallet.setPrice(p.getPrice());
-        wallet.setMoneyLeft(p.getMoneyLeft());
+        wallet.setMoneyAdd(p.getMoneyAdd());
 
         walletDao.save(wallet);
         return new ModelAndView("redirect:/viewProducts");

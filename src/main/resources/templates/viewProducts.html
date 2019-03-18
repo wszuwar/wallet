@@ -14,14 +14,15 @@
     <tr>
 
       <th>
-        <a href="/add"><h2>Strona Domowa: Dodaj nowy Produkt</h2></a>
+        <a href="/add"><button name="add" id="add">Dodaj nowy Zakup</button></a>
       </th>
 
       <th>
-        <a aling="right" href="/deleteAll"><h2>Usun wszystkie Produkty</h2></a>
+        <a  aling="right" href="/deleteAll"><button name="deleteAll" id="deleteAll">Usun Wszystko</button></a>
 
       </th>
       </tr>
+
     </table>
     <table>
 
@@ -29,17 +30,17 @@
 <form:form>
 <table id="t01" border="2" width="70%" cellpadding="2">
   <tr>
-    <th>Data</th><th>Nazwa Produktu</th><th>Cena</th><th>Ile Mamy</th>
-    <th>Edycja</th><th>Usuwanie</th></tr>
+    <th>Data</th><th>Co/Gdzie Kupiono</th><th>Wydatki</th><th>Przychody</th>
+    </tr>
 
     <tr th:each="wallet : ${list}">
- <td th:text="${wallet.date}"></td>
+ <td th:text="${{wallet.date}}"></td>
  <td th:text="${wallet.name}"></td>
- <td th:number="${wallet.price}"></td>
- <td th:number="${wallet.moneyLeft}"></td>
+ <td th:text="${wallet.price}"></td>
+ <td id="12" th:text="${wallet.moneyAdd}"></td>
 
- <td><a th:href="@{'/editProduct/' + ${wallet.id}}">Edytuj</a></td>
-    <td><a th:href="@{'/deleteProduct/' + ${wallet.id}}">Usun</a></td>
+ <td><a  th:href="@{'/editProduct/' + ${wallet.id}}"><button name="edit" id="edit">Edytuj</button></a></td>
+    <td><a th:href="@{'/deleteProduct/' + ${wallet.id}}"><button name="delete" id="delete">Usun</button></a></td>
 
   </tr>
 
