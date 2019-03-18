@@ -36,7 +36,7 @@
 <form:form>
 <table id="t01" border="2" width="70%" cellpadding="2">
   <tr>
-    <th>Data</th><th>Co/Gdzie Kupiono</th><th>Wydatki</th><th>Przychody</th>
+    <th>Data</th><th>Co/Gdzie Kupiono</th><th>Wydatki</th><th>Przychody</th><th>Ile Zostalo</th>
     </tr>
 
     <tr th:each="wallet : ${list}">
@@ -44,6 +44,8 @@
  <td th:text="${wallet.name}"></td>
  <td th:text="${wallet.price}"></td>
  <td id="12" th:text="${wallet.moneyAdd}"></td>
+ <td th:text="${wallet.moneyLeft}"></td>
+
 
  <td><a  th:href="@{'/editProduct/' + ${wallet.id}}"><button name="edit" id="edit">Edytuj</button></a></td>
     <td><a th:href="@{'/deleteProduct/' + ${wallet.id}}"><button name="delete" id="delete">Usun</button></a></td>

@@ -15,6 +15,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.validation.Valid;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Controller
 public class WalletController {
@@ -25,6 +26,9 @@ public class WalletController {
     @RequestMapping(value = "/add", method = RequestMethod.GET)
     public String newRegistration(ModelMap model){
         Wallet wallet = new Wallet();
+        wallet.setMoneyAdd(0L);
+        wallet.setPrice(0L);
+
         model.addAttribute("wallet", wallet);
         return "add";
     }
@@ -35,7 +39,8 @@ public class WalletController {
             return "add";
         }
         walletDao.save(wallet);
-
+        wallet.setMoneyLeft(howMuchLeft());
+        walletDao.save(wallet);
         return "redirect:/viewProducts";
     }
 
@@ -60,6 +65,7 @@ public class WalletController {
         wallet.setName(p.getName());
         wallet.setPrice(p.getPrice());
         wallet.setMoneyAdd(p.getMoneyAdd());
+        wallet.setMoneyLeft(howMuchLeft());
 
         walletDao.save(wallet);
         return new ModelAndView("redirect:/viewProducts");
@@ -76,6 +82,13 @@ public class WalletController {
     public ModelAndView delAll(){
         List<Wallet> list = walletDao.deleteAll();
         return new ModelAndView("redirect:/viewProducts","list",list);
+    }
+
+    @ModelAttribute(name = "money")
+    public Long howMuchLeft(){
+               Long left = walletDao.findAll().stream().collect(Collectors.summingLong(s -> s.getMoneyAdd() - s.getPrice()));
+
+            return left;
     }
 
 }

@@ -38,5 +38,7 @@ public class Wallet {
     @Column(name = "money_add")
     private Long moneyAdd;
 
+    @Column(name = "money_left")
+    private Long moneyLeft;
 
 }
