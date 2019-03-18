@@ -31,8 +31,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Bean
     @Override
     public UserDetailsService userDetailsService() {
-        UserDetails user = User.withUsername("user").password("password").roles("USER").build();
-
-        return new InMemoryUserDetailsManager(user);
+        UserDetails monika = User.withUsername("Monika").password("password").roles("USER").build();
+        UserDetails marek = User.withUsername("Marek").password("password").roles("USER").build();
+        return new InMemoryUserDetailsManager(monika,marek);
     }
 }
