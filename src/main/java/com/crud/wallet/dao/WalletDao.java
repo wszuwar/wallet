@@ -14,10 +14,9 @@ public class WalletDao {
 
 
 
-    public Wallet save(Wallet prod) {
-        return walletRepository.save(prod);
+    public Wallet save(Wallet walet) {
+        return walletRepository.save(walet);
     }
-
 
 
 

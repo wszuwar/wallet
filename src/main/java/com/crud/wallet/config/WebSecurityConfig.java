@@ -19,6 +19,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         http
                 .authorizeRequests()
                 .antMatchers("/", "/login").permitAll()
+                .antMatchers("/css/**").permitAll()
                 .anyRequest().authenticated()
                 .and()
                 .formLogin()
@@ -26,7 +27,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .permitAll()
                 .successForwardUrl("/viewProducts")
                 .and()
-                .logout().logoutSuccessUrl("/login")
+                .logout()
                 .permitAll();
     }
 

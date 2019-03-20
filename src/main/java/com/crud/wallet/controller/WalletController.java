@@ -89,7 +89,7 @@ public class WalletController {
     @ModelAttribute(name = "money")
     public Long howMuchLeft(){
                Long left = walletDao.findAll().stream()
-                       .collect(Collectors.summingLong(s -> s.getMoneyAdd() - s.getPrice()));
+                       .collect(Collectors.summingLong(s -> s.getMoneyAdd() - s.getPrice())).longValue();
             return left;
     }
 
