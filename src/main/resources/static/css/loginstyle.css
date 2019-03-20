@@ -1,25 +1,28 @@
-body{
+body {
     margin: 0;
     padding: 0;
     font-family: sans-serif;
     background: #34495e;
 }
+
 #login {
     width: 300px;
     padding: 40px;
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%,-50%);
+    transform: translate(-50%, -50%);
     background: #191919;
     text-align: center;
 }
-#title{
+
+#title {
     color: white;
     text-transform: uppercase;
     font-weight: 500;
 }
-#username, #password{
+
+#username, #password {
     border: 0;
     background: none;
     display: block;
@@ -32,12 +35,15 @@ body{
     color: white;
     border-radius: 24px;
     transition: 0.25s;
+
 }
-#username:focus,input#password:focus{
+
+#username:focus, input#password:focus {
     width: 280px;
     border-color: #2ecc71;
 }
-#dodaj{
+
+#dodaj {
     border: 0;
     background: none;
     display: block;
@@ -51,7 +57,8 @@ body{
     transition: 0.25s;
     cursor: pointer;
 }
-#dodaj:hover{
+
+#dodaj:hover {
     background: #2ecc71;
 }
 

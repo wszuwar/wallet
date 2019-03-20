@@ -3,43 +3,43 @@
 <head>
     <meta charset="UTF-8"/>
     <title>Formularz dodawania Produktu</title>
-  <link rel="stylesheet" th:href="@{/css/styles.css}"/>
-  <link rel="stylesheet" th:href="@{/css/custom.css}"/>
-  <link rel="stylesheet" th:href="@{/css/main.css}"/>
+
+    <link rel="stylesheet" th:href="@{/css/custom.css}"/>
+    <link rel="stylesheet" th:href="@{/css/main.css}"/>
 </head>
 <body>
-  <div>
-    <h1>Formularz dodawania Produktu</h1>
+<div>
+    <h1>Edycja Wpłaty/Wypłaty</h1>
 
     <form action="#" th:action="@{/editsave}" th:object="${wallet}" method="post">
-      <input type="hidden" th:value="${id}" th:field="*{id}" />
-      <table>
+        <input type="hidden" th:value="${id}" th:field="*{id}"/>
+        <table id="tableEdit">
 
-        <tr>
-          <td width="10%">Co/Gdzie Kupiono :</td>
-          <td width="90%" aling="left"><input type="text" th:field="*{name}" /></td>
-        </tr>
+            <tr>
+                <td width="10%">Co/Gdzie Kupiono :</td>
+                <td width="90%" aling="left"><input type="text" th:field="*{name}"/></td>
+            </tr>
 
-        <tr>
-          <td>Cena :</td>
-          <td><input type="number" th:field="*{price}" /></td>
-        </tr>
+            <tr>
+                <td>Koszt :</td>
+                <td><input type="number" th:field="*{price}"/></td>
+            </tr>
 
-        <tr>
-          <td>Przychody :</td>
-          <td><input type="number" th:field="*{moneyAdd}"   /></td>
-        </tr>
+            <tr>
+                <td>Wpłata :</td>
+                <td><input type="number" th:field="*{moneyAdd}"/></td>
+            </tr>
 
-        <tr>
-          <td>   </td>
-          <td>
-            <input type="submit" value="Dodaj" id="edytowanie"/>
-          </td>
-        </tr>
-      </table>
+            <tr>
+                <td></td>
+                <td>
+                    <input type="submit" value="Dodaj" id="edytowanie"/>
+                </td>
+            </tr>
+        </table>
     </form>
 
-  </div>
+</div>
 
 
 </body>

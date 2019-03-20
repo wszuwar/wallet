@@ -12,6 +12,7 @@ import org.springframework.web.servlet.HandlerExceptionResolver;
 import org.springframework.web.servlet.config.annotation.*;
 
 import java.util.List;
+
 @Configuration
 public class MvcConfig implements WebMvcConfigurer {
     @Override

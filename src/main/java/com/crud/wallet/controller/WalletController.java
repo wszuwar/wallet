@@ -24,7 +24,7 @@ public class WalletController {
     private WalletDao walletDao;
 
     @RequestMapping(value = "/add", method = RequestMethod.GET)
-    public String newRegistration(ModelMap model){
+    public String newRegistration(ModelMap model) {
         Wallet wallet = new Wallet();
         wallet.setMoneyAdd(0L);
         wallet.setPrice(0L);
@@ -32,9 +32,10 @@ public class WalletController {
         model.addAttribute("wallet", wallet);
         return "add";
     }
+
     @RequestMapping(value = "/save", method = RequestMethod.POST)
-    public String saveRegistration(@Valid Wallet wallet, BindingResult result, ModelMap model, RedirectAttributes redirectAttributes){
-        if (result.hasErrors()){
+    public String saveRegistration(@Valid Wallet wallet, BindingResult result, ModelMap model, RedirectAttributes redirectAttributes) {
+        if (result.hasErrors()) {
             System.out.println("HAS ERRORS!");
             return "add";
         }
@@ -46,20 +47,20 @@ public class WalletController {
     }
 
     @RequestMapping(value = "/viewProducts")
-    public ModelAndView getAll(){
+    public ModelAndView getAll() {
         List<Wallet> list = walletDao.findAll();
-        return new ModelAndView("viewProducts","list",list);
+        return new ModelAndView("viewProducts", "list", list);
     }
 
     @RequestMapping(value = "/editProduct/{id}")
-    public String edit(@PathVariable Long id, ModelMap model){
+    public String edit(@PathVariable Long id, ModelMap model) {
         Wallet wallet = walletDao.findOne(id);
-        model.addAttribute("wallet",wallet);
+        model.addAttribute("wallet", wallet);
         return "editProduct";
     }
 
     @RequestMapping(value = "/editsave", method = RequestMethod.POST)
-    public ModelAndView editsave(@ModelAttribute("wallet") Wallet p){
+    public ModelAndView editsave(@ModelAttribute("wallet") Wallet p) {
         Wallet wallet = walletDao.findOne(p.getId());
 
 
@@ -73,24 +74,24 @@ public class WalletController {
     }
 
     @RequestMapping(value = "deleteProduct/{id}", method = RequestMethod.GET)
-    public ModelAndView delete(@PathVariable Long id){
+    public ModelAndView delete(@PathVariable Long id) {
         Wallet wallet = walletDao.findOne(id);
         walletDao.delete(wallet);
         return new ModelAndView("redirect:/viewProducts");
     }
 
     @RequestMapping(value = "/deleteAll")
-    public ModelAndView delAll(){
+    public ModelAndView delAll() {
         List<Wallet> list = walletDao.deleteAll();
-        return new ModelAndView("redirect:/viewProducts","list",list);
+        return new ModelAndView("redirect:/viewProducts", "list", list);
     }
 
 
     @ModelAttribute(name = "money")
-    public Long howMuchLeft(){
-               Long left = walletDao.findAll().stream()
-                       .collect(Collectors.summingLong(s -> s.getMoneyAdd() - s.getPrice())).longValue();
-            return left;
+    public Long howMuchLeft() {
+        Long left = walletDao.findAll().stream()
+                .collect(Collectors.summingLong(s -> s.getMoneyAdd() - s.getPrice())).longValue();
+        return left;
     }
 
 }

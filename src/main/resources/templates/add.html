@@ -2,47 +2,49 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8"/>
-    <title>Formularz dodawania Produktu</title>
-  <link rel="stylesheet" th:href="@{/css/styles.css}"/>
-  <link rel="stylesheet" th:href="@{/css/custom.css}"/>
-  <link rel="stylesheet" th:href="@{/css/main.css}"/>
+    <title>Dodaj Wpłate/Wypłate</title>
+
+    <link rel="stylesheet" th:href="@{/css/custom.css}"/>
+    <link rel="stylesheet" th:href="@{/css/main.css}"/>
 </head>
 <body>
-  <div>
-    <h1>Formularz dodawania Produktu</h1>
+<div>
+    <h1>Dodaj Nową Wpłate/Wypłate</h1>
 
     <form action="#" th:action="@{/save}" th:object="${wallet}" method="post">
 
-      <table>
+        <table id="tableAdd">
 
-        <tr>
-          <td width="10%">Co/Gdzie Kupiono :</td>
-          <td width="90%" aling="left"><input type="text" th:field="*{name}" /></td>
-          <label th:if="${#fields.hasErrors('name')}"  th:errors="*{name}"  th:class="'error'">Blad w Nazwie</label>
-        </tr>
+            <tr>
+                <td width="10%">Co/Gdzie Kupiono :</td>
+                <td width="90%" aling="left"><input type="text" th:field="*{name}"/></td>
+                <label th:if="${#fields.hasErrors('name')}" th:errors="*{name}" th:class="'error'">Blad w Nazwie</label>
+            </tr>
 
-        <tr>
-          <td>Cena :</td>
-          <td><input type="number" th:field="*{price}" th:max="${wallet.moneyLeft}"/></td>
-          <label th:if="${#fields.hasErrors('price')}"  th:errors="*{price}"  th:class="'error'">Blad w Cenie</label>
-        </tr>
+            <tr>
+                <td>Koszt :</td>
+                <td><input type="number" th:field="*{price}" th:max="${wallet.moneyLeft}"/></td>
+                <label th:if="${#fields.hasErrors('price')}" th:errors="*{price}" th:class="'error'">Blad w
+                    Cenie</label>
+            </tr>
 
-        <tr>
-          <td>Przychody :</td>
-          <td><input type="number" th:field="*{moneyAdd}"   /></td>
-          <label th:if="${#fields.hasErrors('moneyAdd')}"  th:errors="*{moneyAdd}"  th:class="'error'">Blad w Polu</label>
-        </tr>
+            <tr>
+                <td>Wpłata :</td>
+                <td><input type="number" th:field="*{moneyAdd}"/></td>
+                <label th:if="${#fields.hasErrors('moneyAdd')}" th:errors="*{moneyAdd}" th:class="'error'">Blad w
+                    Polu</label>
+            </tr>
 
-        <tr>
-          <td>   </td>
-          <td>
-            <input type="submit" value="Dodaj" id="dodawanie"/>
-          </td>
-        </tr>
-      </table>
+            <tr>
+                <td></td>
+                <td>
+                    <input type="submit" value="Dodaj" id="dodawanie"/>
+                </td>
+            </tr>
+        </table>
     </form>
 
-  </div>
+</div>
 
 
 </body>

@@ -14,47 +14,61 @@
 <form th:action="@{/logout}" method="post">
     <input type="submit" value="Wyloguj" id="logout"/>
 </form>
-  <h1 aling="center">Lista Produktow</h1>
+<h1 aling="center">Lista Wydatków</h1>
 
-  <table id="t02" cellpadding="2">
+<table id="t02" cellpadding="2">
     <tr>
 
 
-      <th>
-        <a href="/add"><button name="add" id="add">Dodaj nowy Zakup</button></a>
-      </th>
+        <th>
+            <a href="/add">
+                <button name="add" id="add">Dodaj Nowy</button>
+            </a>
+        </th>
 
-      <th>
-        <a  aling="right" href="/deleteAll"><button name="deleteAll" id="deleteAll">Usun Wszystko</button></a>
+        <th>
+            <a aling="right" href="/deleteAll">
+                <button name="deleteAll" id="deleteAll">Usuń Wszystko</button>
+            </a>
 
-      </th>
-      </tr>
-
-    </table>
-    <table>
-
-    </table>
-<form:form>
-<table id="t01" border="2" width="70%" cellpadding="2">
-  <tr>
-    <th>Data</th><th>Co/Gdzie Kupiono</th><th>Wydatki</th><th>Przychody</th><th>Ile Zostalo</th><th>Edycja</th><th>Usuwanie</th>
+        </th>
     </tr>
 
-    <tr th:each="wallet : ${list}">
- <td th:text="${{wallet.date}}"></td>
- <td th:text="${wallet.name}"></td>
- <td th:text="${wallet.price}"></td>
- <td th:text="${wallet.moneyAdd}"></td>
- <td th:text="${wallet.moneyLeft}"></td>
-
-
- <td><a  th:href="@{'/editProduct/' + ${wallet.id}}"><button name="edit" id="edit">Edytuj</button></a></td>
-    <td><a th:href="@{'/deleteProduct/' + ${wallet.id}}"><button name="delete" id="delete">Usun</button></a></td>
-
-  </tr>
+</table>
+<table>
 
 </table>
-  <br/>
+<form:form>
+    <table id="t01" border="2" width="70%" cellpadding="2">
+        <tr>
+            <th>Data</th>
+            <th>Co/Gdzie Kupiono</th>
+            <th>Wydatki</th>
+            <th>Przychody</th>
+            <th>Stan Konta</th>
+            <th>Edycja</th>
+            <th>Usuń</th>
+        </tr>
+
+        <tr th:each="wallet : ${list}">
+            <td th:text="${{wallet.date}}"></td>
+            <td th:text="${wallet.name}"></td>
+            <td th:text="${wallet.price}"></td>
+            <td th:text="${wallet.moneyAdd}"></td>
+            <td th:text="${wallet.moneyLeft}"></td>
+
+
+            <td><a th:href="@{'/editProduct/' + ${wallet.id}}">
+                <button name="edit" id="edit">Edytuj</button>
+            </a></td>
+            <td><a th:href="@{'/deleteProduct/' + ${wallet.id}}">
+                <button name="delete" id="delete">Usun</button>
+            </a></td>
+
+        </tr>
+
+    </table>
+    <br/>
 </form:form>
 
 </body>

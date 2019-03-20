@@ -13,28 +13,24 @@ public class WalletDao {
     WalletRepository walletRepository;
 
 
-
     public Wallet save(Wallet walet) {
         return walletRepository.save(walet);
     }
 
 
-
-    public List<Wallet> findAll(){
+    public List<Wallet> findAll() {
         return walletRepository.findAll();
     }
 
-    public  List<Wallet> deleteAll(){
-         walletRepository.deleteAll();
-         return walletRepository.findAll();
+    public List<Wallet> deleteAll() {
+        walletRepository.deleteAll();
+        return walletRepository.findAll();
     }
 
 
     public Wallet findOne(Long id) {
         return walletRepository.findOne(id);
     }
-
-
 
 
     public void delete(Wallet prod) {
