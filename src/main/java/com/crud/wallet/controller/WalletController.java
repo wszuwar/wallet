@@ -38,6 +38,7 @@ public class WalletController {
             System.out.println("HAS ERRORS!");
             return "add";
         }
+
         walletDao.save(wallet);
         wallet.setMoneyLeft(howMuchLeft());
         walletDao.save(wallet);
@@ -61,7 +62,7 @@ public class WalletController {
     public ModelAndView editsave(@ModelAttribute("wallet") Wallet p){
         Wallet wallet = walletDao.findOne(p.getId());
 
-        wallet.setDate(p.getDate());
+
         wallet.setName(p.getName());
         wallet.setPrice(p.getPrice());
         wallet.setMoneyAdd(p.getMoneyAdd());
@@ -84,10 +85,11 @@ public class WalletController {
         return new ModelAndView("redirect:/viewProducts","list",list);
     }
 
+
     @ModelAttribute(name = "money")
     public Long howMuchLeft(){
-               Long left = walletDao.findAll().stream().collect(Collectors.summingLong(s -> s.getMoneyAdd() - s.getPrice()));
-
+               Long left = walletDao.findAll().stream()
+                       .collect(Collectors.summingLong(s -> s.getMoneyAdd() - s.getPrice()));
             return left;
     }
 

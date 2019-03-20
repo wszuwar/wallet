@@ -14,21 +14,16 @@
     <form action="#" th:action="@{/save}" th:object="${wallet}" method="post">
 
       <table>
-        <tr>
-          <td width="10%"> Data :</td>
-          <td width="90%" aling="left"><input type="date" th:field="*{date}" /></td>
-          <label th:if="${#fields.hasErrors('date')}"  th:errors="*{date}"  th:class="'error'">Blad w dacie</label>
-        </tr>
 
         <tr>
-          <td>Co/Gdzie Kupiono :</td>
-          <td><input type="text" th:field="*{name}" /></td>
+          <td width="10%">Co/Gdzie Kupiono :</td>
+          <td width="90%" aling="left"><input type="text" th:field="*{name}" /></td>
           <label th:if="${#fields.hasErrors('name')}"  th:errors="*{name}"  th:class="'error'">Blad w Nazwie</label>
         </tr>
 
         <tr>
           <td>Cena :</td>
-          <td><input type="number" th:field="*{price}" /></td>
+          <td><input type="number" th:field="*{price}" th:max="${wallet.moneyLeft}"/></td>
           <label th:if="${#fields.hasErrors('price')}"  th:errors="*{price}"  th:class="'error'">Blad w Cenie</label>
         </tr>
 

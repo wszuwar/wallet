@@ -1,5 +1,6 @@
 package com.crud.wallet.config;
 
+
 import org.springframework.context.annotation.Configuration;
 import org.springframework.format.FormatterRegistry;
 import org.springframework.http.converter.HttpMessageConverter;
@@ -11,7 +12,6 @@ import org.springframework.web.servlet.HandlerExceptionResolver;
 import org.springframework.web.servlet.config.annotation.*;
 
 import java.util.List;
-
 @Configuration
 public class MvcConfig implements WebMvcConfigurer {
     @Override
@@ -56,11 +56,9 @@ public class MvcConfig implements WebMvcConfigurer {
 
     @Override
     public void addViewControllers(ViewControllerRegistry registry) {
-        registry.addViewController("/home").setViewName("home");
-        registry.addViewController("/").setViewName("home");
-        registry.addViewController("/viewProducts").setViewName("viewProducts");
+        registry.addViewController("/").setViewName("login");
         registry.addViewController("/login").setViewName("login");
-
+        registry.addViewController("/viewProducts").setViewName("viewProducts");
 
     }
 
